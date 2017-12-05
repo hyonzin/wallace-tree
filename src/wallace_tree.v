@@ -24,7 +24,7 @@ endmodule // part_of_wallace_tree
  */
 module wallace_tree (S, X);
 
-  output wire [9:0] S;
+  output wire [10:0] S;
   input  wire [7:0][5:0] X;
 
   wire [2:0] W0;
@@ -49,6 +49,6 @@ module wallace_tree (S, X);
 
   assign S[0] = W3[0];
   carry_propagate_adder cpa ({W4, S[8:1]}, W2[7:0], W3[8:1]);
-  half_adder ha (W5, S[9], W4, W2[8]);
+  half_adder ha (S[10], S[9], W4, W2[8]);
 
 endmodule // wallace_tree
