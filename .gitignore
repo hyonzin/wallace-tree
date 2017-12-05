@@ -1,2 +1,3 @@
 bin/
 *.lxt
+.DS_Store
