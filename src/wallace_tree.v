@@ -24,8 +24,7 @@ endmodule // part_of_wallace_tree
  */
 module wallace_tree (S, X);
 
-  output wire [2:0] Co; //3?
-  output wire [9:0] S; //10?
+  output wire [9:0] S;
   input  wire [7:0][5:0] X;
 
   wire [2:0] W0;
@@ -38,11 +37,11 @@ module wallace_tree (S, X);
   generate
   for(i=0; i<8; i=i+1) begin
     if (i == 0)
-      part_of_wallace_tree p (W1[i], W2[i], W3[i], 3'b000, X[i]);
-    else if (i == 7)
-      part_of_wallace_tree p (W0, W2[i], W3[i], W1[i-1], X[i]);
-    else
+      part_of_wallace_tree p (W1[i], W2[i], W3[i], 3'b000,  X[i]);
+    else if (i < 7)
       part_of_wallace_tree p (W1[i], W2[i], W3[i], W1[i-1], X[i]);
+    else
+      part_of_wallace_tree p (W0,    W2[i], W3[i], W1[i-1], X[i]);
   end
   endgenerate
 
