@@ -1,9 +1,13 @@
-all:
-	iverilog -o exe *.v
+all: dir bin/exe
+
+dir:
+	mkdir -p bin
+
+bin/exe:
+	iverilog -o bin/exe src/*.v
 
 run: all
-	./exe
+	bin/exe
 
 clean:
-	rm -f exe
-
+	rm -f bin/exe
