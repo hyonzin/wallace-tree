@@ -7,7 +7,7 @@ bin/exe: src/*
 	iverilog -o bin/exe src/*.v
 
 run: all
-	bin/exe
+	vvp bin/exe -lxt2
 
 clean:
 	rm -f bin/exe

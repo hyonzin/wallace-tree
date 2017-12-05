@@ -36,7 +36,7 @@ module carry_save_adder (C, S, X, Y, Z);
 
   genvar i;
   generate
-  for(i=0; i<WIDTH; i=i+1) begin
+  for (i=0; i<WIDTH; i=i+1) begin
     full_adder fa2 (C[i], S[i], X[i], Y[i], Z[i]);
   end
   endgenerate
@@ -56,7 +56,7 @@ module carry_propagate_adder (S, X, Y);
 
   genvar i;
   generate
-  for(i=0; i<WIDTH; i=i+1) begin
+  for (i=0; i<WIDTH; i=i+1) begin
     if (i == 0)
       half_adder ha (W[i], S[i], X[i], Y[i]);
     else if (i < WIDTH-1)

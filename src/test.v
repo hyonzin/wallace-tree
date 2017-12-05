@@ -119,9 +119,15 @@ module testbench;
     I[7] = 6'b111111;
     #1 $display("S: %b", S3);
 
+    $finish;
   end
 
   initial begin
-    #500 $finish;
+    $dumpfile("test.lxt");
+    $dumpvars(0, C);  $dumpvars(0, S);
+    $dumpvars(0, Co); $dumpvars(0, So);
+    $dumpvars(0, C2); $dumpvars(0, S2);
+    $dumpvars(0, I);  $dumpvars(0, S3);
+
   end
 endmodule
